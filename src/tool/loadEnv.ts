@@ -3,7 +3,7 @@ import path from 'path';
 import { Exceptions } from '../exceptions/Exceptions';
 
 export default function loadEnv(): void {
-  const envPath: string = path.resolve(__dirname, '.env');
+  const envPath: string = path.resolve(__filename, '.env');
 
   if (!fs.existsSync(envPath)) {
     console.error(Exceptions.EnvNotFoundException)

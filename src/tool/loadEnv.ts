@@ -1,12 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import { EnvNotFoundException } from '../exception/EnvNotFoundException';
+import { Exceptions } from '../exceptions/Exceptions';
 
 export default function loadEnv(): void {
   const envPath: string = path.resolve(__dirname, '.env');
 
   if (!fs.existsSync(envPath)) {
-    throw new EnvNotFoundException();
+    console.error(Exceptions.EnvNotFoundException)
+    return;
   }
 
   const envfile: string = fs.readFileSync(envPath, 'utf-8');
